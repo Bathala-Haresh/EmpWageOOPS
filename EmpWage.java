@@ -1,12 +1,20 @@
 package com.java.problems;
 
-public class EmployeeWageUc5
-{
+public class EmployeeWageUc6 {
 
 	final int partTime = 1;
 	final int fullTime = 2;
 	final int wageHr = 20;
 	final int workingDays = 20;
+	final int Max_Working_Days = 20;
+    public int getMax_Working_Days() {
+		return Max_Working_Days;
+	}
+	public int getMax_Working_Hrs() {
+		return Max_Working_Hrs;
+	}
+
+	final int Max_Working_Hrs = 100;
 
 	public int getPartTime() {
 		return partTime;
@@ -21,34 +29,44 @@ public class EmployeeWageUc5
 		return workingDays;
 	}
 
-
 	void method()
 	{
+		int totalWage = 0;
+		int workingHrs = 0;
+		System.out.printf("%3s     %3s       %3s       %3s\n", "Day", "Workinghrs", "Wage", "Total working hrs");
 
-		int totalWage=0;
-		int empType = (int) (Math.random() * 100) % 3;
-		//loop that travels for day starting from 1 to 20 th day and calculating total wage
-		for (int day = 1; day <= workingDays; day++)
+		//for loop to check a condition working hours or days is reached maximum
+		for (int day = 1, totalWorkingHrs = 0; day <= Max_Working_Days
+				&& totalWorkingHrs < Max_Working_Hrs; day++, totalWorkingHrs += workingHrs)
 		{
-			int workingHours =0;
+
+			int empType = (int) (Math.random() * 100) % 3;
 			switch (empType)
 			{
 			case fullTime:
-				workingHours = 8;
+				workingHrs = 8;
 				break;
-			case partTime:
-				workingHours = 4;
+			case  partTime:
+				workingHrs = 4;
 				break;
 			default:
+				workingHrs = 0;
+				break;
 			}
-			int wage = workingHours * wageHr;
-			System.out.println("Day " + day + " wage is:" + wage);
-			totalWage += wage;
+			//calculating totalwage for an employee
+			int wage = workingHrs * wageHr;
+					totalWage += wage;
+
+					//prints day ,workinghours,wage,totalhours and workinghours of an employee
+					System.out.printf("%3d          %3d          %3d          %3d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
+
 		}
-		//prints the total wage for the month
-		System.out.println("Total wage for a month is " + totalWage);        
+		System.out.println("Total wage for the entire month is " + totalWage);
 	}
 }
+
+
+
 
 
 
@@ -57,10 +75,11 @@ public class EmpWage
 {
 	public static void main(String args[])
 	{
-		EmployeeWageUc5 emp5=new EmployeeWageUc5();
-		emp5.method();	
+		
+		
+		System.out.println("--------------------------------------------------");
+		EmployeeWageUc6 emp6=new EmployeeWageUc6();
+		emp6.method();
 		
 	}
 }
-
-
