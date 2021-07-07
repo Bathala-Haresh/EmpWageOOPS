@@ -7,7 +7,7 @@ public class EmployeeWageUc6 {
 	final int wageHr = 20;
 	final int workingDays = 20;
 	final int Max_Working_Days = 20;
-    public int getMax_Working_Days() {
+	public int getMax_Working_Days() {
 		return Max_Working_Days;
 	}
 	public int getMax_Working_Hrs() {
@@ -55,16 +55,15 @@ public class EmployeeWageUc6 {
 			}
 			//calculating totalwage for an employee
 			int wage = workingHrs * wageHr;
-					totalWage += wage;
+			totalWage += wage;
 
-					//prints day ,workinghours,wage,totalhours and workinghours of an employee
-					System.out.printf("%3d          %3d          %3d          %3d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
+			//prints day ,workinghours,wage,totalhours and workinghours of an employee
+			System.out.printf("%3d          %3d          %3d          %3d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
 
 		}
 		System.out.println("Total wage for the entire month is " + totalWage);
 	}
 }
-
 
 
 
